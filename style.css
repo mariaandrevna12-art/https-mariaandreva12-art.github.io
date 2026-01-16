@@ -1,0 +1,289 @@
+body {
+  margin: 0;
+  background: #fff0f5;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+}
+
+.wrapper {
+  max-width: 420px;
+  width: 100%;
+  padding: 36px 22px 80px;
+  box-sizing: border-box;
+}
+
+.intro {
+  margin-bottom: 32px;
+}
+
+.tag {
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: #c48fa1;
+  text-transform: uppercase;
+}
+
+h1 {
+  font-size: 30px;
+  font-weight: 500;
+  line-height: 1.2;
+  color: #3a2a2f;
+  margin: 14px 0 18px;
+}
+
+.description {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #6f555e;
+  margin-bottom: 24px;
+}
+
+.btn {
+  display: inline-block;
+  background: #e8b6c7;
+  color: #fff;
+  text-decoration: none;
+  padding: 14px 26px;
+  border-radius: 999px;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: #d89aad;
+}
+
+/* Стикеры */
+.stickers {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 28px;
+}
+
+.stickers span {
+  background: #ffffff;
+  border-radius: 999px;
+  padding: 8px 14px;
+  font-size: 12px;
+  color: #b06f86;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+}
+
+/* Pinterest grid */
+.pinterest-grid {
+  column-count: 2;
+  column-gap: 14px;
+}
+
+.pinterest-grid img {
+  width: 100%;
+  border-radius: 18px;
+  margin-bottom: 14px;
+  break-inside: avoid;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+.bows {
+  display: flex;
+  gap: 12px;
+  margin: 18px 0 28px;
+  font-size: 20px;
+  color: #f1a1b3;
+}
+.fade-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease;
+}
+
+.fade-up.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+body::before {
+  content: "🎀 🎀 🎀 🎀 🎀 🎀 🎀 🎀 🎀 🎀 🎀 🎀";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 200%;
+  font-size: 26px;
+  opacity: 0.06;
+  line-height: 2.8;
+  letter-spacing: 40px;
+  pointer-events: none;
+  transform: rotate(-15deg);
+  animation: floatBows 60s linear infinite;
+}
+
+@keyframes floatBows {
+  from {
+    transform: translate(0, 0) rotate(-15deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(-15deg);
+  }
+}
+body {
+  background: linear-gradient(
+    180deg,
+    #fff7fb 0%,
+    #fdebf2 50%,
+    #fffafd 100%
+  );
+}
+@keyframes softFloat {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+  100% { transform: translateY(0); }
+}
+
+.card {
+  animation: softFloat 10s ease-in-out infinite;
+}
+.card {
+  box-shadow:
+    0 20px 40px rgba(241, 161, 179, 0.15),
+    0 0 60px rgba(255, 225, 235, 0.6);
+}
+h1 {
+  font-weight: 300;
+  letter-spacing: 0.6px;
+}
+
+.about {
+  color: #8d6a75;
+}
+.wrapper, .card {
+  position: relative;
+  z-index: 1;
+}
+.bow-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  opacity: 0.18;
+  pointer-events: none;
+  animation: bowFloat 80s linear infinite;
+}
+
+@keyframes bowFloat {
+  from { transform: translate(0, 0); }
+  to { transform: translate(-200px, -200px); }
+}
+.soft-reveal {
+  opacity: 0;
+  transform: translateY(18px) scale(0.98);
+  transition:
+    opacity 0.9s ease,
+    transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.soft-reveal.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+const softObserver = new IntersectionObserver(
+  entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  },
+  {
+    threshold: 0.15
+  }
+);
+
+document.querySelectorAll('.soft-reveal').forEach(el => {
+  softObserver.observe(el);
+});
+.photo-reveal {
+  opacity: 0;
+  transform: translateY(20px) scale(0.96);
+  transition:
+    opacity 0.8s ease,
+    transform 1s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.photo-reveal.show {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+/* ===== MOBILE / IPHONE FIX ===== */
+
+@media (max-width: 430px) {
+
+  body {
+    margin: 0;
+    font-size: 15px;
+    overflow-x: hidden;
+  }
+
+  .wrapper {
+    max-width: 390px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 24px 16px 48px;
+    box-sizing: border-box;
+  }
+
+  h1, h2 {
+    font-size: 24px;
+    line-height: 1.3;
+    text-align: center;
+  }
+
+  .description {
+    font-size: 14px;
+    line-height: 1.6;
+    text-align: center;
+    margin-bottom: 24px;
+  }
+
+  .btn {
+    display: block;
+    width: 100%;
+    padding: 14px 0;
+    font-size: 15px;
+    border-radius: 999px;
+    text-align: center;
+  }
+
+  .stickers {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    margin: 24px 0;
+  }
+
+  .stickers span {
+    font-size: 12px;
+    padding: 6px 12px;
+    border-radius: 999px;
+  }
+}
+
+/* ===== PINTEREST GRID (MOBILE PERFECT) ===== */
+
+.pinterest-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 32px;
+}
+
+.pinterest-grid img {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  border-radius: 16px;
+}
+
+/* Третье фото по центру */
+.pinterest-grid img:nth-child(3) {
+  grid-column: span 2;
+}
